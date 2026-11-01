@@ -1,5 +1,5 @@
 {
-  "name": "folia-major",
+  "name": "folia-desktop-lyrics",
   "productName": "Folia Desktop Lyrics",
   "desktopName": "folia-major.desktop",
   "description": "Folia 非官方二次开发：Windows 动画歌词壁纸、任务栏歌词与系统托盘控制",
@@ -8,7 +8,7 @@
     "email": "chthollyphile@users.noreply.github.com"
   },
   "private": true,
-  "version": "0.7.25-desktop.1",
+  "version": "0.7.26",
   "license": "AGPL-3.0",
   "type": "module",
   "main": "electron/main.cjs",
