@@ -16,4 +16,8 @@ Copyright (c) 2026 zoefix. Full MIT license: [licenses/AgentSpeed-MIT.txt](licen
 
 ## Other dependencies
 
+The Windows packages include an MNN runtime built from Alibaba MNN commit `d407447ed56c4121a11ccbd266dc184ca1ead0c2`, with Folia's UTF-8 file-path adjustment described in `build/buildMnnRuntime.mjs`. Its Apache 2.0 license is retained in [licenses/MNN-Apache-2.0.txt](licenses/MNN-Apache-2.0.txt).
+
+The bundled analysis weights are identified and hash-verified by `shared/modelManifest.json`. Beat This! is credited to the Institute of Computational Perception, JKU Linz; its MIT notice is retained in [licenses/Beat-This-MIT.txt](licenses/Beat-This-MIT.txt). The htdemucs weights derive from Demucs by Meta Platforms, Inc. and affiliates; its MIT notice is retained in [licenses/Demucs-MIT.txt](licenses/Demucs-MIT.txt). The FFmpeg runtime ships its own redistribution metadata under `resources/ffmpeg-audio/share/folia-ffmpeg`.
+
 Existing third-party notices, source comments, dependency manifests, and bundled license files are retained. Folia uses the [AMLL TTML lyrics database](https://github.com/amll-dev/amll-ttml-db), [LDDC](https://github.com/chenmozhijin/LDDC), [NeteaseCloudMusicApiEnhanced](https://github.com/NeteaseCloudMusicApiEnhanced/api-enhanced), [pretext](https://github.com/chenglou/pretext), [KuGouMusicApi](https://github.com/MakcRe/KuGouMusicApi), [paper-design/shaders](https://github.com/paper-design/shaders), and [qq-music-api](https://github.com/yakult-green-tea/qq-music-api). Their respective licenses and content rights continue to apply.
