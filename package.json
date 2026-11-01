@@ -1,6 +1,6 @@
 {
   "name": "folia-major",
-  "productName": "Folia",
+  "productName": "Folia Desktop Lyrics",
   "desktopName": "folia-major.desktop",
   "description": "Folia 非官方二次开发：Windows 动画歌词壁纸、任务栏歌词与系统托盘控制",
   "author": {
@@ -8,7 +8,7 @@
     "email": "chthollyphile@users.noreply.github.com"
   },
   "private": true,
-  "version": "0.7.25",
+  "version": "0.7.25-desktop.1",
   "license": "AGPL-3.0",
   "type": "module",
   "main": "electron/main.cjs",
@@ -62,8 +62,9 @@
     "manual:ai-probe": "node test/manual/ai_probe.mjs"
   },
   "build": {
-    "appId": "top.izuna.foliamajor",
-    "productName": "Folia",
+    "appId": "io.github.wanwld140.folia-desktop-lyrics",
+    "productName": "Folia Desktop Lyrics",
+    "executableName": "FoliaDesktopLyrics",
     "beforePack": "build/beforePack.cjs",
     "afterPack": "build/afterPack.cjs",
     "electronLanguages": [
@@ -93,7 +94,10 @@
       "package.json",
       "build/miao.png",
       "build/icon.png",
-      "build/thumbar/*.png"
+      "build/thumbar/*.png",
+      "LICENSE",
+      "THIRD_PARTY_NOTICES.md",
+      "licenses/**/*"
     ],
     "asarUnpack": [
       "node_modules/@koromix/koffi-*/**/*.node",
@@ -190,10 +194,12 @@
       "artifactName": "${productName}-${version}-${arch}.${ext}"
     },
     "win": {
-      "artifactName": "${productName}-Setup-${version}.${ext}",
+      "artifactName": "Folia-Desktop-Lyrics-${version}-Windows-${arch}.${ext}",
       "target": [
-        "nsis"
+        "nsis",
+        "zip"
       ],
+      "signExecutable": false,
       "icon": "build/icon.png",
       "extraResources": [
         {
@@ -207,6 +213,7 @@
       ]
     },
     "nsis": {
+      "artifactName": "Folia-Desktop-Lyrics-Setup-${version}-Windows-${arch}.${ext}",
       "oneClick": false,
       "allowToChangeInstallationDirectory": true,
       "installerLanguages": [

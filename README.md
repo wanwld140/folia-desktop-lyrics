@@ -17,7 +17,11 @@
 
 在“设置 → 桌面”中开启“任务栏歌词”或“壁纸模式”。壁纸模式下通过任务栏歌词“…”/右键菜单或系统托盘菜单退出，也可使用快捷键 **Ctrl+Alt+Shift+F12** 恢复普通窗口。
 
-详细说明：[任务栏歌词](electron/taskbarLyrics/README.md) · [壁纸模式](docs/wallpaper-mode.md)。本仓库当前提供源码，未附带安装包。
+详细说明：[任务栏歌词](electron/taskbarLyrics/README.md) · [壁纸模式](docs/wallpaper-mode.md)。
+
+## 下载
+
+前往 [Releases](https://github.com/wanwld140/folia-desktop-lyrics/releases) 下载 Windows x64 版本：`.exe` 为安装包，`.zip` 为免安装版，解压后运行 `FoliaDesktopLyrics.exe`。任务栏 helper 和所需运行时已随包提供。
 
 ## 本地运行与构建
 

@@ -23,7 +23,11 @@ npm run build:taskbar-lyrics
 npm run dev:electron
 ```
 
-For packaging, run `npm run build:electron -- --win --publish never`. The upstream build scripts download native runtimes and model files; network access and platform toolchains are required. No installers are included in this source repository.
+For packaging, run `npm run build:electron -- --win --publish never`. The upstream build scripts download native runtimes and model files; network access and platform toolchains are required.
+
+## Download
+
+Download Windows x64 builds from [Releases](https://github.com/wanwld140/folia-desktop-lyrics/releases). Use the `.exe` installer, or extract the `.zip` and launch `FoliaDesktopLyrics.exe`. Required runtimes and the taskbar helper are bundled.
 
 ## Attribution and license
 
