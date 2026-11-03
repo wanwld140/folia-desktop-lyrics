@@ -46,7 +46,7 @@ export const qishuiExplore: OnlineExploreProvider = {
         if (!page) return { sections: [] };
         batches = 1;
         console.info('[Qishui] Explore stream read', { count: page.items.length });
-        return { sections: [{ id: 'stream', title: i18n.t('qishui.recommended'), items: page.items,
+        return { sections: [{ id: 'stream', title: i18n.t('qishui.mobileRecommendations'), items: page.items,
             ...(page.hasMore ? { moreCursor: stampCursor(mine, 'stream') } : {}) }], refreshReadsAnew: true };
     },
     async getSectionItems(cursor) {

@@ -7,21 +7,21 @@ import { qishuiCatalog, qishuiLibrary } from './qishuiCatalog';
 import { parseQishuiLyrics } from './qishuiLyrics';
 import { diagnosticLine } from '../login/loginDiagnosticReport';
 import { qishuiExplore, clearQishuiExplore } from './qishuiExplore';
-import { qishuiRecommendations, clearQishuiRecommendations } from './qishuiRecommendations';
+import { qishuiRecommendations } from './qishuiRecommendations';
 import { qishuiMutations, qishuiSongId as songId } from './qishuiMutations';
 import { qishuiPlayback, clearQishuiPlayback, readQishuiSongs } from './qishuiPlayback';
 import { describeQishuiFailure } from './qishuiFailure';
 
-// Car platform adapter; account and catalogue operations share the existing Omni entry points.
-// What belongs to one sign-in: the explore stream's memory, the scene catalogue and the playability checks.
+// Phone guest recommendations with compatibility account, catalogue and playback operations.
+// The renderer's explore memory and compatibility playability checks belong to one sign-in.
 // Dropped together whenever the account changes: confirmed, signed out, or the sign-in ran out.
-function clearAccountState() { clearQishuiExplore(); clearQishuiRecommendations(); clearQishuiPlayback(); }
+function clearAccountState() { clearQishuiExplore(); clearQishuiPlayback(); }
 export const qishuiProvider: OnlineMusicProvider = {
     id: 'qishui', displayName: '汽水音乐', shortName: '汽水', mark: { letter: '汽', color: '#19a58c' },
     getAvailability: getQishuiAvailability,
     capabilities: { search: true, playback: true, lyrics: true, wordByWordLyrics: true, auth: true,
         userLibrary: true, playlists: true, albums: false, artists: true, recommendations: true,
-        mutations: true, likes: true, playlistTrackMutations: true, explore: true, personalFmModes: true },
+        mutations: true, likes: true, playlistTrackMutations: true, explore: true, personalFmModes: false },
     normalizeSong: normalizeQishuiSong, normalizeUser: normalizeQishuiUser, normalizeCollection: normalizeQishuiCollection,
     songMetadata: { getSongMetadata: createProviderSongMetadata },
     describeFailure: describeQishuiFailure,

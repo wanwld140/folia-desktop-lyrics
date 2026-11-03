@@ -1496,7 +1496,7 @@ export default {
     "loginNoteKugou": "Mở KuGou Music và quét mã QR này",
     "loginTitleQq": "Quét mã đăng nhập QQ Music",
     "loginTitleQishui": "Đăng nhập Qishui Music bằng Douyin",
-    "loginNoteQishui": "Quét mã bằng ứng dụng Douyin và xác nhận ủy quyền",
+    "loginNoteQishui": "Quét bằng Douyin và xác nhận ủy quyền. Đăng nhập này dành cho dịch vụ tương thích, không phải đề xuất di động.",
     "loginTitleBodian": "Quét bằng Bodian Music",
     "loginNoteBodian": "Mở ứng dụng Bodian Music quét mã QR và xác nhận đăng nhập",
     "loginTitleYtm": "Đăng nhập YouTube Music",
@@ -1740,7 +1740,7 @@ export default {
     "ponderDescription": "Tìm hiểu thao tác cơ bản và cơ chế vận hành của Folia",
     "version": "phiên bản"
   },
-  "qishui": { "recentPlayed": "Gần đây đã phát trên Qishui", "recommended": "Được đề xuất cho bạn" },
+  "qishui": { "recentPlayed": "Gần đây đã phát trên Qishui", "recommended": "Được đề xuất cho bạn", "mobileRecommendations": "Đề xuất di động · Khách", "mobileRecommendationNotice": "Đề xuất di động · Chưa đăng nhập. Phát tương thích có thể chỉ nghe thử hoặc không khả dụng. Đăng nhập hiện tại không cá nhân hóa đề xuất di động." },
   "lyricProvider": {
     "qishui": "Qishui Music",
     "netease": "NetEase Cloud Music",

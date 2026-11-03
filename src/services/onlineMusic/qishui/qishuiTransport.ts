@@ -2,7 +2,8 @@ import { OnlineProviderError } from '../../../types/onlineMusic';
 import type { ProviderErrorCode } from '../../../types/onlineMusic';
 import type { QishuiOperation, QishuiParams, QishuiBridgeResult } from 'qishui-music-api';
 
-// Typed renderer boundary for the car bridge; credentials and player models stay in the main process.
+// Typed desktop boundary for phone recommendations and compatibility operations.
+// Credentials and player models stay in the main process.
 export type { QishuiOperation, QishuiParams, QishuiBridgeResult } from 'qishui-music-api';
 // What a request fails with where this page has no desktop bridge (the web build), and where the bridge
 // itself failed (the main process threw). qishuiFailure.ts tells both apart by them.

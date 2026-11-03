@@ -102,10 +102,10 @@ describe('Qishui account capabilities', () => {
         expect(request).toHaveBeenCalledExactlyOnceWith('recent_played', { limit: 1, offset: 2 });
         expect(await qishuiCatalog.getPlaylistDetail!('recent-played')).toMatchObject({ type: 'history', isOwned: false });
     });
-    it('routes recommendation dislike through Omni and preserves write failures', async () => {
-        expect(omni.canDislikeSong(song())).toBe(true);
-        await expect(omni.dislikeSong(song())).resolves.toEqual({});
-        expect(request).toHaveBeenCalledWith('dislike_song', { id: song().id, disliked: true });
+    it('does not send car dislike commands for phone recommendations and preserves library write failures', async () => {
+        expect(omni.canDislikeSong(song())).toBe(false);
+        await expect(omni.dislikeSong(song())).rejects.toMatchObject({ code: 'unsupported' });
+        expect(request).not.toHaveBeenCalled();
         request.mockResolvedValue({ ok: false, error: { code: 'auth-required', message: 'Sign in' } });
         await expect(qishuiMutations.likeSong!(song(), true)).rejects.toMatchObject({ code: 'auth-required' });
     });

@@ -2,7 +2,8 @@ import type { UnifiedSong } from '../../../types';
 import type { ProviderCollection, ProviderUser } from '../../../types/onlineMusic';
 import { OnlineProviderError } from '../../../types/onlineMusic';
 
-// Normalize car entities without rounding 64-bit media IDs or guessing playability from payment labels.
+// Both the compatibility catalogue and the phone feed bridge supply this public metadata shape.
+// Keep 64-bit media IDs intact and do not infer playability from payment labels.
 export type QishuiRecord = Record<string, any>;
 export const record = (raw: unknown): QishuiRecord => raw && typeof raw === 'object' && !Array.isArray(raw) ? raw : {};
 const text = (value: unknown) => value == null ? '' : String(value);

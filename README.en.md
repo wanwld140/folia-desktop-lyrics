@@ -10,6 +10,7 @@ This is an **unofficial derivative** of [Folia by chthollyphile](https://github.
 - Show current and next lyrics in a taskbar card, with scrolling text, artwork, and playback controls.
 - Exit wallpaper mode through the taskbar card menu or system tray. Clicking the tray icon, opening the player from the card, or launching the app again restores the ordinary player.
 - Revise Windows rendering to address black screens and flicker, remove the persistent recovery window, and include the tray icon resources.
+- Use the phone song feed for Qishui Personal FM and Explore, currently as a guest. Existing sign-in does not personalize this feed. Scene/preference modes and Dislike are unavailable until verified on the phone protocol. Search and playback still use the compatibility service; some tracks are previews or unavailable.
 
 Enable these features in **Settings → Desktop**. **Ctrl+Alt+Shift+F12** restores the ordinary window from wallpaper mode. Taskbar lyrics follow playback inside Folia.
 

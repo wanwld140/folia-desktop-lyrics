@@ -1496,7 +1496,7 @@ export default {
     "loginNoteKugou": "Open KuGou Music and scan this QR code",
     "loginTitleQq": "Scan to sign in to QQ Music",
     "loginTitleQishui": "Sign in to Qishui Music with Douyin",
-    "loginNoteQishui": "Scan with the Douyin app and confirm authorization",
+    "loginNoteQishui": "Scan with Douyin and confirm authorization. This signs in to the compatibility service, not the mobile recommendation feed.",
     "loginTitleBodian": "Scan with Bodian Music",
     "loginNoteBodian": "Scan this code with the Bodian Music app and confirm sign-in",
     "loginTitleYtm": "Sign in to YouTube Music",
@@ -1740,7 +1740,7 @@ export default {
     "ponderDescription": "Learn Folia's basic controls and operating model",
     "version": "Version"
   },
-  "qishui": { "recentPlayed": "Recently played on Qishui", "recommended": "Recommended for you" },
+  "qishui": { "recentPlayed": "Recently played on Qishui", "recommended": "Recommended for you", "mobileRecommendations": "Mobile recommendations · Guest", "mobileRecommendationNotice": "Mobile recommendations · Not signed in. Compatibility playback may offer previews or unavailable tracks. Your existing sign-in does not personalize mobile recommendations." },
   "lyricProvider": {
     "qishui": "Qishui Music",
     "netease": "NetEase Cloud Music",

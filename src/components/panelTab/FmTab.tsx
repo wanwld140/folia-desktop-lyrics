@@ -48,6 +48,7 @@ const FmTab: React.FC<FmTabProps> = ({
     likeDisabledReason,
 }) => {
     const { t } = useTranslation();
+    const noticeKey = usePlaybackStore(state => state.currentSong ? omni.getPersonalFmNoticeKey(state.currentSong) : undefined);
     // A song of a provider that has no like at all (`capabilities.likes`) gets no heart here: greyed
     // out it could never be pressed. Any other reason to grey the heart out passes, and it stays.
     const hasLike = usePlaybackStore(state => !state.currentSong
@@ -58,6 +59,7 @@ const FmTab: React.FC<FmTabProps> = ({
 
     return (
         <div className="flex flex-col items-center gap-3.5 px-1 pb-1.5 pt-2.5">
+            {noticeKey && <p className="text-center text-xs leading-relaxed text-[color:var(--st-t2)]">{t(noticeKey)}</p>}
             {/* Opens the command palette's FM mode picker: the same surface the palette offers, so
                 the mode lives in one place instead of being reimplemented inside the panel. */}
             {onOpenModePicker && (

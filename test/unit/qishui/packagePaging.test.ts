@@ -58,8 +58,8 @@ describe('Qishui package-to-adapter paging', () => {
         await qishuiMutations.likeSong!(song, false);
         await qishuiMutations.updatePlaylistTracks!('add', playlist, [song]);
         await qishuiMutations.updatePlaylistTracks!('del', playlist, [song]);
-        await qishuiRecommendations.dislikeSong!('1');
-        expect(paths).toEqual(['/media/collect/', '/media/cancel/collect/', '/playlist/append/', '/playlist/delete/', '/dislike/']);
+        expect(qishuiRecommendations.dislikeSong).toBeUndefined();
+        expect(paths).toEqual(['/media/collect/', '/media/cancel/collect/', '/playlist/append/', '/playlist/delete/']);
     });
     it('uses opaque upstream cursors while exposing exact row offsets to the library', async () => {
         const values = new Map<string, unknown>();

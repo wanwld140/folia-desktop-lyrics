@@ -1496,7 +1496,7 @@ export default {
     "loginNoteKugou": "Buka KuGou Music dan pindai kode QR ini",
     "loginTitleQq": "Pindai untuk masuk ke QQ Music",
     "loginTitleQishui": "Masuk ke Qishui Music dengan Douyin",
-    "loginNoteQishui": "Pindai dengan aplikasi Douyin dan konfirmasi otorisasi",
+    "loginNoteQishui": "Pindai dengan Douyin dan konfirmasi otorisasi. Login ini untuk layanan kompatibilitas, bukan rekomendasi seluler.",
     "loginTitleBodian": "Pindai dengan Bodian Music",
     "loginNoteBodian": "Pindai kode ini dengan aplikasi Bodian Music dan konfirmasi masuk",
     "loginTitleYtm": "Masuk ke YouTube Music",
@@ -1740,7 +1740,7 @@ export default {
     "ponderDescription": "Pelajari kontrol dasar dan cara kerja Folia",
     "version": "Versi"
   },
-  "qishui": { "recentPlayed": "Terakhir diputar di Qishui", "recommended": "Rekomendasi untuk Anda" },
+  "qishui": { "recentPlayed": "Terakhir diputar di Qishui", "recommended": "Rekomendasi untuk Anda", "mobileRecommendations": "Rekomendasi seluler · Tamu", "mobileRecommendationNotice": "Rekomendasi seluler · Belum masuk. Pemutaran kompatibilitas dapat berupa cuplikan atau tidak tersedia. Login yang ada tidak mempersonalisasi rekomendasi seluler." },
   "lyricProvider": {
     "qishui": "Qishui Music",
     "netease": "NetEase Cloud Music",

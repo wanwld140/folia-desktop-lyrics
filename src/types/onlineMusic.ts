@@ -682,6 +682,8 @@ export interface PersonalFmRequestOptions {
 }
 
 export interface OnlineRecommendationProvider {
+    /** Persistent source/account scope information shown while this provider's Personal FM plays. */
+    personalFmNoticeKey?: string;
     getPersonalFmCatalog?(): Promise<PersonalFmCatalog>;
     getDailySongs?(refresh?: boolean): Promise<UnifiedSong[]>;
     getPersonalFm?(options?: PersonalFmRequestOptions): Promise<UnifiedSong[]>;

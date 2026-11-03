@@ -1496,7 +1496,7 @@ export default {
     "loginNoteKugou": "打开酷狗音乐APP扫描二维码",
     "loginTitleQq": "扫码登录QQ音乐",
     "loginTitleQishui": "用抖音扫码登录汽水音乐",
-    "loginNoteQishui": "请使用抖音 App 扫码并确认授权",
+    "loginNoteQishui": "请使用抖音 App 扫码并确认授权。此登录用于兼容接口，不会登录手机推荐流。",
     "loginTitleBodian": "使用波点音乐 App 扫码",
     "loginNoteBodian": "打开波点音乐 App 扫描二维码并确认登录",
     "loginTitleYtm": "登录 YouTube Music",
@@ -1740,7 +1740,7 @@ export default {
     "ponderDescription": "了解 Folia 的基本操作与运行逻辑",
     "version": "版本"
   },
-  "qishui": { "recentPlayed": "汽水最近播放", "recommended": "为你推荐" },
+  "qishui": { "recentPlayed": "汽水最近播放", "recommended": "为你推荐", "mobileRecommendations": "手机推荐 · 访客", "mobileRecommendationNotice": "手机接口推荐 · 未登录。播放由兼容接口提供，部分歌曲仅能试听或暂不可播。现有登录不会用于手机推荐个性化。" },
   "lyricProvider": {
     "qishui": "汽水音乐",
     "netease": "网易云音乐",

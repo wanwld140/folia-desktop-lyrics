@@ -17,6 +17,25 @@ const account = { userId: 'opaque-account', user: { id: 'opaque-account', nickna
     guardKey: 'fixture-key', guardCert: 'fixture-certificate', guardTsSign: 'fixture-signature', accessCode: 'fixture-access', expiresAt: Date.now() + 7200000 };
 
 describe('Qishui desktop bridge', () => {
+    it('routes phone feeds without sharing car account material', async () => {
+        const request = vi.fn().mockResolvedValue({ ok: true, data: null });
+        const mobileRequest = vi.fn().mockResolvedValue({ ok: true, data: { items: [], hasMore: false } });
+        const mobileFactory = vi.fn((_options: unknown) => ({ request: mobileRequest, clear: vi.fn() }));
+        const bridge = createQishuiApiBridge({ store: store(), apiFactory: () => ({ request }), mobileFactory, fetch: vi.fn() });
+        await bridge.request('feed', { limit: 2 });
+        expect(mobileRequest).toHaveBeenCalledExactlyOnceWith('feed', { limit: 2 });
+        expect(Object.keys(mobileFactory.mock.calls[0][0] as object)).toEqual(['fetch']);
+        expect(request).not.toHaveBeenCalled();
+        await bridge.request('login_status');
+        expect(request).toHaveBeenCalledExactlyOnceWith('login_status', {});
+    });
+    it('does not fall back to car recommendations when phone requests fail', async () => {
+        const request = vi.fn();
+        const bridge = createQishuiApiBridge({ store: store(), apiFactory: () => ({ request }),
+            mobileFactory: () => ({ request: async () => ({ ok: false, error: { code: 'network', message: 'Phone unavailable' } }) }) });
+        expect(await bridge.request('feed')).toMatchObject({ ok: false, error: { code: 'network' } });
+        expect(request).not.toHaveBeenCalled();
+    });
     it('rejects unregistered IPC operations before invoking the package', async () => {
         const request = vi.fn();
         const bridge = createQishuiApiBridge({ store: store(), apiFactory: () => ({ request }) });

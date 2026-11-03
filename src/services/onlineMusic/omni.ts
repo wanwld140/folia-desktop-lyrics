@@ -818,6 +818,10 @@ export const omni = {
         });
     },
 
+    getPersonalFmNoticeKey(song: SongResult): string | undefined {
+        return getOnlineMusicProviderForSong(song)?.recommendations?.personalFmNoticeKey;
+    },
+
     async getPersonalFmCatalog(providerId: OmniProviderId) {
         return requireOnlineMusicProvider(providerId).recommendations?.getPersonalFmCatalog?.() ?? DEFAULT_PERSONAL_FM_CATALOG;
     },

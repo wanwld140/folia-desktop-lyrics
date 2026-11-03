@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { qishuiExplore, clearQishuiExplore } from '@/services/onlineMusic/qishui/qishuiExplore';
-import { clearQishuiRecommendations, getQishuiFmCatalog } from '@/services/onlineMusic/qishui/qishuiRecommendations';
+import { getQishuiFmCatalog } from '@/services/onlineMusic/qishui/qishuiRecommendations';
 import { clearQishuiPlayback, readQishuiSongs } from '@/services/onlineMusic/qishui/qishuiPlayback';
 import { createQishuiSceneCover } from '@/services/onlineMusic/qishui/qishuiSceneCover';
 import { qishuiProvider } from '@/services/onlineMusic/qishui/qishuiProvider';
@@ -19,7 +19,7 @@ const request = vi.mocked(requestQishui);
 const batch = (ids: string[], hasMore = true) => ({ items: ids.map(id => track(id)), hasMore });
 const idsOf = (items: ProviderExploreItem[]) => items.map(item => (item.kind === 'song' ? String(item.song.id) : item.collection.id));
 beforeEach(() => {
-    clearQishuiExplore(); clearQishuiRecommendations(); clearQishuiPlayback();
+    clearQishuiExplore(); clearQishuiPlayback();
     request.mockReset();
     vi.mocked(readQishuiSceneIcon).mockReset();
 });
@@ -65,7 +65,7 @@ describe('Qishui explore stream', () => {
 });
 
 describe('Qishui sign-in that ran out', () => {
-    it('drops the explore stream, the scene catalogue and the playability checks together', async () => {
+    it('drops the explore stream and compatibility playability checks when sign-in expires', async () => {
         request.mockImplementation(async operation => {
             if (operation === 'feed') return batch(['1', '2']);
             if (operation === 'feed_modes') return [{ id: '7', name: 'Drive', group: 'Scenes' }];
@@ -84,15 +84,13 @@ describe('Qishui sign-in that ran out', () => {
         expect(qishuiProvider.playback!.getAvailability!(song)).toEqual({ state: 'unknown' });
         expect(await qishuiExplore.getSectionItems!(section.moreCursor!)).toEqual({ items: [] });
         await getQishuiFmCatalog();
-        expect(request).toHaveBeenCalledExactlyOnceWith('feed_modes');
+        expect(request).not.toHaveBeenCalled();
     });
-    it('does not hand out radio cards from a scene catalogue read under the account before', async () => {
-        let finish!: (rows: unknown) => void;
-        request.mockImplementationOnce(() => new Promise(resolve => { finish = resolve; }));
+    it('keeps car scene cards absent across account changes', async () => {
         const cards = qishuiProvider.recommendations!.getRecommendedCollections!(10);
         await qishuiProvider.auth!.signInRanOut!();
-        finish([{ id: '7', name: 'Drive', group: 'Scenes' }]);
         expect(await cards).toEqual([]);
+        expect(request).not.toHaveBeenCalled();
     });
 });
 
